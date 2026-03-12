@@ -46,14 +46,14 @@ export function Sidebar({ notes, selectedNoteId, onSelectNote, onCreateNote, onL
           <div className="flex items-center gap-3">
             <motion.div
               whileHover={{ scale: 1.1, rotate: 5 }}
-              className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg"
+              className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg"
             >
               <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
             </motion.div>
             <div>
-              <h1 className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              <h1 className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
                 Notium
               </h1>
               <p className="text-xs text-gray-500 dark:text-gray-400">Your personal notes</p>
@@ -73,7 +73,7 @@ export function Sidebar({ notes, selectedNoteId, onSelectNote, onCreateNote, onL
           whileHover={{ scale: 1.02, y: -2 }}
           whileTap={{ scale: 0.98, y: 0 }}
           onClick={onCreateNote}
-          className="w-full py-3 px-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+          className="w-full py-3 px-4 bg-gradient-to-r from-indigo-600 to-blue-600 text-white rounded-xl font-semibold hover:from-indigo-700 hover:to-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -109,7 +109,7 @@ export function Sidebar({ notes, selectedNoteId, onSelectNote, onCreateNote, onL
               onClick={() => setFilterType(filter)}
               className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
                 filterType === filter
-                  ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md'
+                  ? 'bg-gradient-to-r from-indigo-600 to-blue-600 text-white shadow-md'
                   : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600'
               }`}
             >
@@ -160,7 +160,7 @@ export function Sidebar({ notes, selectedNoteId, onSelectNote, onCreateNote, onL
               }}
               className={`w-full text-left p-3 rounded-xl transition-all duration-200 ${
                 selectedNoteId === note.id
-                  ? 'bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 border-l-4 border-indigo-600 dark:border-indigo-400'
+                  ? 'bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-indigo-900/20 dark:to-blue-900/20 border-l-4 border-indigo-600 dark:border-indigo-400'
                   : 'hover:bg-gray-50 dark:hover:bg-gray-700'
               }`}
             >
@@ -213,7 +213,7 @@ export function Sidebar({ notes, selectedNoteId, onSelectNote, onCreateNote, onL
       <div className="p-4 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center shadow-md">
+            <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-full flex items-center justify-center shadow-md">
               <span className="text-white font-bold text-sm">
                 {username.charAt(0).toUpperCase()}
               </span>
