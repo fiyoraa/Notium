@@ -1,4 +1,4 @@
-# Notium - Aplikasi Notebook=
+# Notium - Aplikasi Notebook
 
 Aplikasi web note-taking dibikin pake React + TypeScript + Tailwind CSS.
 
