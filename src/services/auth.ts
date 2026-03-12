@@ -8,7 +8,10 @@ export async function signUp(username: string, password: string): Promise<User> 
     .select()
     .single();
 
-  if (error) throw error;
+  if (error) {
+    console.error('Signup error:', error);
+    throw new Error('Failed to create account');
+  }
   return data;
 }
 
@@ -18,9 +21,17 @@ export async function signIn(username: string, password: string): Promise<User> 
     .select('*')
     .eq('username', username)
     .eq('password_hash', password)
-    .single();
+    .maybeSingle();
 
-  if (error) throw error;
+  if (error) {
+    console.error('Signin error:', error);
+    throw new Error('Login failed');
+  }
+  
+  if (!data) {
+    throw new Error('Invalid username or password');
+  }
+  
   return data;
 }
 
@@ -32,9 +43,10 @@ export async function getCurrentUser(): Promise<User | null> {
     .from('users')
     .select('*')
     .eq('id', userId)
-    .single();
+    .maybeSingle();
 
   if (error) {
+    console.error('Get current user error:', error);
     localStorage.removeItem('userId');
     return null;
   }
