@@ -1,73 +1,77 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../services/supabase';
+import { useAuth } from '../contexts/AuthContext';
 import type { Note, CreateNoteInput, UpdateNoteInput } from '../types/note';
 
 export function useNotes() {
   const [notes, setNotes] = useState<Note[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const { user } = useAuth();
 
   useEffect(() => {
+    if (!user) {
+      setNotes([]);
+      setLoading(false);
+      return;
+    }
+
     fetchNotes();
-  }, []);
+  }, [user]);
 
   async function fetchNotes() {
+    if (!user) return;
+
     try {
       setLoading(true);
       const { data, error } = await supabase
         .from('notes')
         .select('*')
+        .eq('user_id', user.id)
         .order('updated_at', { ascending: false });
 
       if (error) throw error;
       setNotes(data || []);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to fetch notes');
+    } catch (err: any) {
+      setError(err.message);
     } finally {
       setLoading(false);
     }
   }
 
   async function createNote(input: CreateNoteInput) {
+    if (!user) throw new Error('User not authenticated');
+
     try {
       const { data, error } = await supabase
         .from('notes')
-        .insert([{
-          ...input,
-          created_at: new Date().toISOString(),
-          updated_at: new Date().toISOString(),
-        }])
+        .insert([{ ...input, user_id: user.id, created_at: new Date().toISOString(), updated_at: new Date().toISOString() }])
         .select()
         .single();
 
       if (error) throw error;
       setNotes(prev => [data, ...prev]);
       return data;
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to create note');
+    } catch (err: any) {
+      setError(err.message);
       throw err;
     }
   }
 
-  async function updateNote(id: string, input: UpdateNoteInput) {
+  async function updateNote(id: string, updates: UpdateNoteInput) {
     try {
       const { data, error } = await supabase
         .from('notes')
-        .update({
-          ...input,
-          updated_at: new Date().toISOString(),
-        })
+        .update({ ...updates, updated_at: new Date().toISOString() })
         .eq('id', id)
         .select()
         .single();
 
       if (error) throw error;
-      setNotes(prev => prev.map(note => 
-        note.id === id ? data : note
-      ));
+      setNotes(prev => prev.map(note => note.id === id ? data : note));
       return data;
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to update note');
+    } catch (err: any) {
+      setError(err.message);
       throw err;
     }
   }
@@ -81,8 +85,8 @@ export function useNotes() {
 
       if (error) throw error;
       setNotes(prev => prev.filter(note => note.id !== id));
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to delete note');
+    } catch (err: any) {
+      setError(err.message);
       throw err;
     }
   }
