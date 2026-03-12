@@ -1,17 +1,16 @@
-# Notium - Aplikasi Notebook oleh Fiyora
+# Notium - Aplikasi Notebook=
 
-Aplikasi web note-taking premium minimalis dengan React + TypeScript + Tailwind CSS.
+Aplikasi web note-taking dibikin pake React + TypeScript + Tailwind CSS.
 
-## Fitur
+## Nih Fitur
 
-- ✨ Editor Markdown dengan live preview
-- 🔍 Pencarian global dengan keyboard shortcuts (Ctrl+K)
-- 🏷️ Sistem tag untuk mengorganisir notes
-- ⭐ Favorites untuk notes penting
-- 🌙 Dark mode & light mode
-- ⚡ Autosave otomatis
-- 🎨 Desain minimalis & premium
-- ⌨️ Keyboard shortcuts (Ctrl+N untuk note baru)
+- 🔍 Bisa search
+- 🏷️ Bisa pake tag buat sortir
+- ⭐ Favorit catatan pake bintang
+- 🌙 Ada mode gelap sama terang
+- ⚡ Udah autosave per kata
+- 🎨 Desain bagus sih tapi ntar di update (klo g mls)
+- ⌨️ Ad shortcut sih (Ctrl + K)
 
 ## Tech Stack
 
@@ -22,17 +21,17 @@ Aplikasi web note-taking premium minimalis dengan React + TypeScript + Tailwind 
 - **Icons**: SVG inline
 - **Markdown**: React Markdown
 
-## Setup Development
+## Kalo mau setup
 
 1. Install dependencies:
    ```bash
    npm install
    ```
 
-2. Setup Supabase:
+2. Setup Supabase (ini database ny)
    - Buat project baru di [Supabase](https://supabase.com)
    - Copy `.env.example` ke `.env`
-   - Isi environment variables:
+   - Isi nih pake:
      ```
      VITE_SUPABASE_URL=your_supabase_url
      VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
@@ -51,12 +50,12 @@ Aplikasi web note-taking premium minimalis dengan React + TypeScript + Tailwind 
    );
    ```
 
-4. Jalankan development server:
+4. Tnggl run
    ```bash
    npm run dev
    ```
 
-## Keyboard Shortcuts
+## Shortcut buat yg blum tau
 
 - `Ctrl+K` (atau `Cmd+K`) - Buka search
 - `Ctrl+N` (atau `Cmd+N`) - Note baru
@@ -64,4 +63,4 @@ Aplikasi web note-taking premium minimalis dengan React + TypeScript + Tailwind 
 
 ## Author
 
-Dikembangkan oleh **Fiyora** sebagai proyek portfolio.
+gtw sp yg bkin, kknya **Fiyora** yg bikin
