@@ -89,6 +89,7 @@ function AppContent() {
             onCreateNote={handleCreateNote}
             onLogout={logout}
             onCloseMobile={() => setSidebarOpen(false)}
+            username={user?.username || 'User'}
           />
         </div>
 
