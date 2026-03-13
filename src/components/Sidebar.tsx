@@ -41,81 +41,81 @@ export function Sidebar({ notes, selectedNoteId, onSelectNote, onCreateNote, onL
       className="w-full h-full flex flex-col bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700"
     >
       {/* Header */}
-      <div className="p-6 border-b border-gray-200 dark:border-gray-700">
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-3">
+      <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2">
             <motion.div
               whileHover={{ scale: 1.1, rotate: 5 }}
-              className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg"
+              className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-lg flex items-center justify-center shadow-md"
             >
-              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
             </motion.div>
             <div>
-              <h1 className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
+              <h1 className="text-lg font-bold bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
                 Notium
               </h1>
-              <p className="text-xs text-gray-500 dark:text-gray-400">Your personal notes</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">Catatan pribadi</p>
             </div>
           </div>
           <button
             onClick={onCloseMobile}
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            className="lg:hidden p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
           >
-            <svg className="w-5 h-5 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
         
         <motion.button
-          whileHover={{ scale: 1.02, y: -2 }}
+          whileHover={{ scale: 1.02, y: -1 }}
           whileTap={{ scale: 0.98, y: 0 }}
           onClick={onCreateNote}
-          className="w-full py-3 px-4 bg-gradient-to-r from-indigo-600 to-blue-600 text-white rounded-xl font-semibold hover:from-indigo-700 hover:to-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+          className="w-full py-2 px-3 bg-gradient-to-r from-indigo-600 to-blue-600 text-white rounded-lg font-medium hover:from-indigo-700 hover:to-blue-700 transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-2 text-sm"
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
           </svg>
-          New Note
+          Catatan Baru
         </motion.button>
       </div>
 
       {/* Search */}
-      <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+      <div className="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
         <div className="relative">
-          <svg className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-3.5 h-3.5 absolute left-2.5 top-1/2 transform -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search your notes..."
-            className="w-full pl-10 pr-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 transition-all duration-200"
+            placeholder="Cari catatan..."
+            className="w-full pl-8 pr-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-md text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 transition-all duration-200"
           />
         </div>
       </div>
 
       {/* Filters */}
-      <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
-        <div className="flex gap-2 mb-4">
+      <div className="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+        <div className="flex gap-1.5 mb-3">
           {(['all', 'favorites', 'recent'] as const).map((filter) => (
             <motion.button
               key={filter}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setFilterType(filter)}
-              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
+              className={`px-2 py-1 rounded-full text-xs font-medium transition-all duration-200 ${
                 filterType === filter
-                  ? 'bg-gradient-to-r from-indigo-600 to-blue-600 text-white shadow-md'
+                  ? 'bg-gradient-to-r from-indigo-600 to-blue-600 text-white shadow-sm'
                   : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600'
               }`}
             >
-              {filter === 'all' && 'All Notes'}
-              {filter === 'favorites' && 'Favorites'}
-              {filter === 'recent' && 'Recent'}
+              {filter === 'all' && 'Semua'}
+              {filter === 'favorites' && 'Favorit'}
+              {filter === 'recent' && 'Baru'}
             </motion.button>
           ))}
         </div>
@@ -123,20 +123,20 @@ export function Sidebar({ notes, selectedNoteId, onSelectNote, onCreateNote, onL
         {/* Tags */}
         {allTags.length > 0 && (
           <div>
-            <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2">Popular Tags</h3>
+            <h3 className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-2">Tag Populer</h3>
             <div className="flex flex-wrap gap-1">
-              {allTags.slice(0, 6).map(tag => (
+              {allTags.slice(0, 5).map(tag => (
                 <motion.span
                   key={tag}
                   whileHover={{ scale: 1.1 }}
-                  className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-xs cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                  className="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded text-xs cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
                 >
                   #{tag}
                 </motion.span>
               ))}
-              {allTags.length > 6 && (
-                <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-xs">
-                  +{allTags.length - 6}
+              {allTags.length > 5 && (
+                <span className="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded text-xs">
+                  +{allTags.length - 5}
                 </span>
               )}
             </div>
@@ -145,33 +145,33 @@ export function Sidebar({ notes, selectedNoteId, onSelectNote, onCreateNote, onL
       </div>
 
       {/* Notes List */}
-      <div className="flex-1 overflow-y-auto p-4">
-        <div className="space-y-2">
+      <div className="flex-1 overflow-y-auto p-3">
+        <div className="space-y-1.5">
           {filteredNotes.slice(0, 10).map((note, index) => (
             <motion.button
               key={note.id}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.05 }}
-              whileHover={{ x: 4, backgroundColor: 'rgba(99, 102, 241, 0.1)' }}
+              whileHover={{ x: 2, backgroundColor: 'rgba(99, 102, 241, 0.1)' }}
               onClick={() => {
                 onSelectNote(note.id);
                 onCloseMobile();
               }}
-              className={`w-full text-left p-3 rounded-xl transition-all duration-200 ${
+              className={`w-full text-left p-2.5 rounded-lg transition-all duration-200 ${
                 selectedNoteId === note.id
-                  ? 'bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-indigo-900/20 dark:to-blue-900/20 border-l-4 border-indigo-600 dark:border-indigo-400'
+                  ? 'bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-indigo-900/20 dark:to-blue-900/20 border-l-2 border-indigo-600 dark:border-indigo-400'
                   : 'hover:bg-gray-50 dark:hover:bg-gray-700'
               }`}
             >
-              <div className="flex items-start justify-between mb-2">
-                <h3 className="font-semibold text-gray-900 dark:text-white truncate text-sm">
-                  {note.title || 'Untitled Note'}
+              <div className="flex items-start justify-between mb-1.5">
+                <h3 className="font-medium text-gray-900 dark:text-white truncate text-xs">
+                  {note.title || 'Catatan Tanpa Judul'}
                 </h3>
                 {note.is_favorite && (
                   <motion.svg
                     whileHover={{ scale: 1.2, rotate: 10 }}
-                    className="w-4 h-4 text-yellow-500 flex-shrink-0 ml-2"
+                    className="w-3 h-3 text-yellow-500 flex-shrink-0 ml-1.5"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -179,26 +179,26 @@ export function Sidebar({ notes, selectedNoteId, onSelectNote, onCreateNote, onL
                   </motion.svg>
                 )}
               </div>
-              <p className="text-xs text-gray-600 dark:text-gray-400 line-clamp-2 mb-2">
-                {note.content.slice(0, 80)}...
+              <p className="text-xs text-gray-600 dark:text-gray-400 line-clamp-2 mb-2 leading-tight">
+                {note.content.slice(0, 60)}...
               </p>
               <div className="flex items-center justify-between">
                 <span className="text-xs text-gray-400">
-                  {new Date(note.updated_at).toLocaleDateString('en-US', { 
+                  {new Date(note.updated_at).toLocaleDateString('id-ID', { 
                     month: 'short', 
                     day: 'numeric' 
                   })}
                 </span>
                 {note.tags.length > 0 && (
                   <div className="flex gap-1">
-                    {note.tags.slice(0, 2).map(tag => (
-                      <span key={tag} className="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs text-gray-600 dark:text-gray-400">
+                    {note.tags.slice(0, 1).map(tag => (
+                      <span key={tag} className="px-1 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs text-gray-600 dark:text-gray-400">
                         #{tag}
                       </span>
                     ))}
-                    {note.tags.length > 2 && (
-                      <span className="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs text-gray-600 dark:text-gray-400">
-                        +{note.tags.length - 2}
+                    {note.tags.length > 1 && (
+                      <span className="px-1 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs text-gray-600 dark:text-gray-400">
+                        +{note.tags.length - 1}
                       </span>
                     )}
                   </div>
@@ -210,20 +210,20 @@ export function Sidebar({ notes, selectedNoteId, onSelectNote, onCreateNote, onL
       </div>
 
       {/* User Profile */}
-      <div className="p-4 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+      <div className="p-3 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-full flex items-center justify-center shadow-md">
-              <span className="text-white font-bold text-sm">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-full flex items-center justify-center shadow-sm">
+              <span className="text-white font-bold text-xs">
                 {username.charAt(0).toUpperCase()}
               </span>
             </div>
             <div>
-              <p className="text-sm font-semibold text-gray-900 dark:text-white">
+              <p className="text-sm font-medium text-gray-900 dark:text-white">
                 {username}
               </p>
               <p className="text-xs text-gray-500 dark:text-gray-400">
-                {notes.length} {notes.length === 1 ? 'note' : 'notes'}
+                {notes.length} {notes.length === 1 ? 'catatan' : 'catatan'}
               </p>
             </div>
           </div>
@@ -231,10 +231,10 @@ export function Sidebar({ notes, selectedNoteId, onSelectNote, onCreateNote, onL
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={onLogout}
-            className="p-2 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 text-red-600 dark:text-red-400 transition-colors"
-            title="Sign out"
+            className="p-1.5 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 text-red-600 dark:text-red-400 transition-colors"
+            title="Keluar"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
             </svg>
           </motion.button>
