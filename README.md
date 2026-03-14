@@ -1,8 +1,8 @@
-# Notium - Aplikasi Notebook
+# Notium
 
-Aplikasi web note-taking dibikin pake React + TypeScript + Tailwind CSS.
+Note Web pake React + TypeScript + Tailwind CSS.
 
-## Nih Fitur
+## Fitur
 
 - 🔍 Bisa search
 - 🏷️ Bisa pake tag buat sortir
